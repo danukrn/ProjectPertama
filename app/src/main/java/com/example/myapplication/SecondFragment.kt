@@ -46,6 +46,7 @@ class SecondFragment : Fragment() {
             val umur = binding.textInputLayoutUmur.editText?.text.toString()
 
             listOrangPsikopat.add(OrangPsikopat(nama,umur))
+            adapterOrangPsikopat?.notifyDataSetChanged()
         }
 
 
