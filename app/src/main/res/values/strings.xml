@@ -6,7 +6,8 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="gua_ganteng">gua ikimen</string>
+    <string name="button">watahsi psycopat</string>
+    <string name="nomor">nomor elo</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
