@@ -13,7 +13,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp">
 
             <Button
                 android:id="@+id/button_second"
@@ -31,7 +33,10 @@
                 android:id="@+id/textInputLayoutNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama"
+                app:boxBackgroundMode="outline"
+                app:boxCollapsedPaddingTop="@dimen/cardview_compat_inset_shadow"
+                app:boxStrokeColor="#2230AE"
+                app:boxStrokeWidth="@dimen/cardview_default_radius"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -42,14 +47,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="hint" />
+                    android:hint="Nama" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutUmur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Umur"
+                app:boxBackgroundMode="outline"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -60,7 +65,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="hint" />
+                    android:hint="Umur" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
