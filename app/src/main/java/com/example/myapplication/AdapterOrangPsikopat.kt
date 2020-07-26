@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ListOrangPsikopatBinding
@@ -12,14 +13,18 @@ class AdapterOrangPsikopat(val listOrangPsikopat: ArrayList<OrangPsikopat>,
                            val context: Context
 ): RecyclerView.Adapter<AdapterOrangPsikopat.viewHolderOrangPsico>() {
 
-    class viewHolderOrangPsico(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val binding = ListOrangPsikopatBinding.bind(itemView)
+    class viewHolderOrangPsico(val binding: ListOrangPsikopatBinding) : RecyclerView.ViewHolder(binding.root){
+        init {
+            binding.root.setOnClickListener {
+                Toast.makeText(binding.root.context,"lol",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolderOrangPsico {
         //TODO("Not yet implemented")
         val view = ListOrangPsikopatBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return viewHolderOrangPsico(view.root)
+        return viewHolderOrangPsico(ListOrangPsikopatBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun getItemCount(): Int {
@@ -31,7 +36,7 @@ class AdapterOrangPsikopat(val listOrangPsikopat: ArrayList<OrangPsikopat>,
         //TODO("Not yet implemented")
         holder.binding.apply {
             textViewNama.text = listOrangPsikopat[position].nama
-            textViewUmur.text = listOrangPsikopat[position].umur.toString()
+            textViewUmur.text = listOrangPsikopat[position].umur
         }
     }
 

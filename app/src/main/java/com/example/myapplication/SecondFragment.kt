@@ -1,12 +1,15 @@
 package com.example.myapplication
 
+import android.icu.lang.UCharacter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.HorizontalScrollView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentSecondBinding
 
@@ -31,8 +34,10 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var listOrangPsikopat = ArrayList<OrangPsikopat>()
-        val adapterOrangPsikopat = context?.let { AdapterOrangPsikopat(listOrangPsikopat, it) }
+        val adapterOrangPsikopat = context?.let {
+            AdapterOrangPsikopat(listOrangPsikopat, it) }
         val llm = LinearLayoutManager(context)
+        val glm = GridLayoutManager(context,3,GridLayoutManager.VERTICAL,false)
         binding.recyclerView.apply {
             layoutManager = llm
             adapter = adapterOrangPsikopat
@@ -49,7 +54,10 @@ class SecondFragment : Fragment() {
             listOrangPsikopat.add(OrangPsikopat(nama,umur))
             adapterOrangPsikopat?.notifyDataSetChanged()
 
-            Toast.makeText(context,"hmmmm",Toast.LENGTH_SHORT).show()
+            when(binding.recyclerView.layoutManager){
+                glm -> binding.recyclerView.layoutManager = llm
+                llm -> binding.recyclerView.layoutManager = glm
+            }
         }
 
 
